@@ -1,22 +1,65 @@
 
 skillMetadata:
   sections:
-    - name: Options << Name of section
-      fields:
-        - name: internal_python_variable_name
-          type: text
-          label: Setting Friendly Display Name
-          value: ""
-          placeholder: demo prompt in the input box
-    - name: Login << Name of another section
+    - name: Enter up to five podcast feeds.
       fields:
         - type: label
-          label: Just a little bit of extra info for the user to understand following settings
-        - name: username
+          label: Podcast 1
+        - name: podcast1
           type: text
-          label: Username
+          label: Name your podcast
           value: ""
-        - name: password
-          type: password
-          label: Password
+          placeholder: demo
+        - name: feed1
+          type: text
+          label: Enter RSS feed
           value: ""
+          placeholder: demo
+        - type: label
+          label: Podcast 2                 
+        - name: podcast2
+          type: text
+          label: Name your podcast   
+          value: ""
+          placeholder: demo
+        - name: feed2
+          type: text
+          label: Enter RSS feed  
+          value: ""
+          placeholder: demo
+        - type: label
+          label: Podcast 3 
+        - name: podcast3
+          type: text
+          label: Name your podcast
+          value: ""
+          placeholder: demo
+        - name: feed3
+          type: text
+          label: Enter RSS feed
+          value: ""
+          placeholder: demo
+        - type: label
+          label: Podcast 4  
+        - name: podcast4
+          type: text
+          label: Name your podcast
+          value: ""
+          placeholder: demo
+        - name: feed4
+          type: text
+          label: Enter RSS feed
+          value: ""
+          placeholder: demo
+        - type: label
+          label: Podcast 5 
+        - name: podcast5
+          type: text
+          label: Name your podcast
+          value: ""
+          placeholder: demo
+        - name: feed5
+          type: text
+          label: Enter RSS feed
+          value: ""
+          placeholder: demo
