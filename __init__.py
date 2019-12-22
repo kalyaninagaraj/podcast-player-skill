@@ -48,6 +48,7 @@ class PodcastPlayer(CommonPlaySkill):
         rss_parsed = feedparser.parse(data["track"].strip()) # strip uri of leading and trailing spaces before parsing
         if 'all india radio' not in phrase:
             encl = rss_parsed.entries[0].enclosures[0] # first enclosure of first entry (item)
+            self.speak_dialog('playing.podcast', {'podcast_title': phrase})
             link = requests.get(encl.href) # find the redirected url from encl.href
         else:
             dt_now = datetime.now()
@@ -68,8 +69,8 @@ class PodcastPlayer(CommonPlaySkill):
                             bd = dt_now - bt
                             link = requests.get(e.enclosures[0].href)
                             break
+            self.speak('Playing the latest news bulletin from All India Radio')
         url = link.url.replace('https', 'http', 1) # replace https with http in red_url.url
-        self.log.info('Playing {} on Podcast Player'.format(phrase))
         self.CPS_play(url)
 
 
