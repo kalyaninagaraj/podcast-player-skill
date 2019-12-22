@@ -1,7 +1,7 @@
 from mycroft import MycroftSkill, intent_handler, intent_file_handler
 from mycroft.skills.common_play_skill import CommonPlaySkill, CPSMatchLevel
-from mycroft.skills.audioservice import AudioService
 from mycroft.util.parse import match_one
+from datetime import datetime, timedelta
 import feedparser
 import requests
 
@@ -12,6 +12,8 @@ import requests
     'seen unseed': 'http://seenunseen.ivm.libsynpro.com',
     'ny times daily': 'https://rss.art19.com/the-daily',
     'intelligence squared': 'https://rss.acast.com/intelligencesquared'
+    'all india radio regional': 'http://newsonair.nic.in/Regional_Audio_rss.aspx',
+    'all india radio national': 'http://newsonair.nic.in/NSD_Audio_rss.aspx'
 }
 """
 
@@ -43,13 +45,33 @@ class PodcastPlayer(CommonPlaySkill):
             Called by the playback control skill to start playback if the
             skill is selected (has the best match level)
         """
-        rss_parsed = feedparser.parse(data["track"].strip()) #strip uri of leading and trailing spaces before parsing
-        encl = rss_parsed.entries[0].enclosures[0]  #first enclosure of first entry (item)
-        red_url = requests.get(encl.href) #find the redirected url from encl.href
-        url = red_url.url.replace('https', 'http', 1) #replace https with http in red_url.url
-        #self.log.info(url)
+        rss_parsed = feedparser.parse(data["track"].strip()) # strip uri of leading and trailing spaces before parsing
+        if 'all india radio' not in phrase:
+            encl = rss_parsed.entries[0].enclosures[0] # first enclosure of first entry (item)
+            link = requests.get(encl.href) # find the redirected url from encl.href
+        else:
+            dt_now = datetime.now()
+            bd = timedelta(hours=24)
+            if 'regional' in phrase:
+                for e in rss_parsed.entries:
+                    if 'Pune-Marathi' in e.title:
+                        bt = datetime.strptime(e.published+e.bulletintime, "%b %d, %Y%H%M")
+                        if bd > dt_now - bt:
+                            bd = dt_now - bt
+                            link = requests.get(e.enclosures[0].href)
+                            break
+            elif 'national' in phrase:
+                for e in rss_parsed.entries:
+                    if e.author == 'English' and (('Morning' in e.title) or ('Midday'in e.title) or ('Nine'in e.title)):
+                        bt = datetime.strptime(e.published+e.bulletintime, "%b %d, %Y%H%M")
+                        if bd > dt_now - bt:
+                            bd = dt_now - bt
+                            link = requests.get(e.enclosures[0].href)
+                            break
+        url = link.url.replace('https', 'http', 1) # replace https with http in red_url.url
+        self.log.info('Playing {} on Podcast Player'.format(phrase))
         self.CPS_play(url)
+
 
 def create_skill():
     return PodcastPlayer()
-
