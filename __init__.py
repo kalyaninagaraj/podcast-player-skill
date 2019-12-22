@@ -5,18 +5,6 @@ from datetime import datetime, timedelta
 import feedparser
 import requests
 
-"""podcast_dict = {
-    'revisionist history': 'https://feeds.megaphone.fm/revisionisthistory',
-    'planet money': 'https://www.npr.org/rss/podcast.php?id=510289',
-    'wait wait': 'https://www.npr.org/rss/podcast.php?id=344098539',
-    'seen unseed': 'http://seenunseen.ivm.libsynpro.com',
-    'ny times daily': 'https://rss.art19.com/the-daily',
-    'intelligence squared': 'https://rss.acast.com/intelligencesquared'
-    'all india radio regional': 'http://newsonair.nic.in/Regional_Audio_rss.aspx',
-    'all india radio national': 'http://newsonair.nic.in/NSD_Audio_rss.aspx'
-}
-"""
-
 class PodcastPlayer(CommonPlaySkill):
     #def __init__(self):
     #    MycroftSkill.__init__(self)
