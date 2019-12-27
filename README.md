@@ -2,9 +2,9 @@
 By default, this skill plays the latest episode of your favorite podcast on Mycroft.
 
 ## Examples
-- *Play \*podcast-name*\.* (Plays the latest episode.)
-- *Play season 2 episode 5 of \*podcast_name*\.* (Plays episode 5 of season 2.)
-- *Play episode 6 of \*podcast_name*\.* (Plays episode 6 of the latest season.) 
+- *Play \*podcast-name*\*. (Plays the latest episode.)
+- *Play season 2 episode 5 of \*podcast_name*\*. (Plays episode 5 of season 2.)
+- *Play episode 6 of \*podcast_name*\*. (Plays episode 6 of the latest season.) 
 
 ## Credits
 kalyaninagaraj
