@@ -2,9 +2,9 @@
 Plays the latest episode of your favorite podcast on Mycroft.
 
 ## Examples
-* "Play the revisionist history podcast"
-* "Play the seen and the unseen podcast"
-* "Play the planet money podcast"
+* *Play <podcast_name>*. Plays the latest episode.
+* *Play season 2 episode 5 of <podcast_name>*. Plays episode 5 of season 2.
+* *Play episode 6 of <podcast_name>*. Plays episode 6 of the latest season. 
 
 ## Things To Note  
 * This skill only plays the most recently listed episode on a
