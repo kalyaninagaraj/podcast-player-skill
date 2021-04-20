@@ -2,7 +2,7 @@
 Mycroft plays the latest episode of your favorite podcast.
 
 ## About        
-Unlike a typical podcast player, this skill does not maintain playlist.
+Unlike some of the other podcast players, this skill does not maintain a playlist.
 
 Instead, this skill lets you to play a particular episode by identifying the season and episode number to Mycroft. 
  
