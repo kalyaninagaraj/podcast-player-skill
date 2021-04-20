@@ -13,7 +13,7 @@ Instead, this skill lets you to play a particular episode by identifying the sea
 - *Play season 3 of \*podcast-name\** (Plays episode 1 of season 3)
 
 ## Credits
-kalyaninagaraj
+[@kalyaninagaraj](https://github.com/kalyaninagaraj/)
 
 ## Category
 **Music & Audio**
