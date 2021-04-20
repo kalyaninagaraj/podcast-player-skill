@@ -1,3 +1,18 @@
+"""
+About
+-----
+This skill lets you to play a particular podcast episode 
+by identifying the season and episode number to Mycroft. 
+
+The code for this skill follows the same broad logic of 
+the all-india-radio-player skill. 
+
+Author
+------
+Kalyani Nagaraj
+Dec 2019
+"""
+
 from mycroft import MycroftSkill, intent_handler, intent_file_handler
 from mycroft.skills.common_play_skill import CommonPlaySkill, CPSMatchLevel
 from mycroft.util.parse import match_one
